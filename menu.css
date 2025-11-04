@@ -306,11 +306,10 @@ footer {
   background-color: #ffffff;
   text-align: center;
   padding: 10px 20px;
-  color: #2d2d2d;
-  /* ⛔ Removed radius */
+  color: #2d2d2d; 
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-radius: 0; /* ensures no rounded edges */
+  border-radius: 0; 
 }
 
 .footer-logos {
