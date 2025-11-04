@@ -58,16 +58,55 @@ header.scrolled {
 }
 
 nav a {
+  margin: 0 15px;
   text-decoration: none;
   color: #333;
-  margin: 0 15px;
+  margin : 0 12px;
   font-weight: 500;
+  position: relative;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #6b7330;
+  color: #dda15e;
 }
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background: #dda15e;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+  .w3-content {
+      max-width: 1200px;
+      width: 90%;
+      margin: 40px auto;
+ 
+    }
+
+    .mySlides {
+
+      width: 100%;
+      border-radius: 50px;
+      margin-top: 1%;
+      animation: fade 1.2s ease-in;
+
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
+  
+    }
 
 .contact-box {
   position: fixed;
@@ -266,7 +305,7 @@ nav a:hover {
 footer {
   background-color: #ffffff;
   text-align: center;
-  padding: 40px 20px;
+  padding: 10px 20px;
   color: #2d2d2d;
   /* ⛔ Removed radius */
   border-top-left-radius: 0;
@@ -297,6 +336,6 @@ footer {
 }
 
 .footer-socials img {
-  width: 60px;
+  width: 50px;
   margin: 0 10px;
 }
