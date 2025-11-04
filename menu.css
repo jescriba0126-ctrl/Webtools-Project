@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -264,12 +264,14 @@ nav a:hover {
 
 /* Footer */
 footer {
-  background-color: #dda15e;
+  background-color: #ffffff;
   text-align: center;
   padding: 40px 20px;
   color: #2d2d2d;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+  /* ⛔ Removed radius */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-radius: 0; /* ensures no rounded edges */
 }
 
 .footer-logos {
