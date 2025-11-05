@@ -21,7 +21,7 @@ body {
   justify-content: center;
   padding: 120px 10% 100px;
   overflow: hidden;
-  margin-top: 100px;
+  margin-top: 90px;
 
 }
 
@@ -304,14 +304,14 @@ nav a:hover::after {
   min-width: 300px;
 }
 .hero h1 {
-  font-size: 44px;
+  font-size: 45px;
   color: #111827;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 .hero p {
   max-width: 520px;
   color: #374151;
-  font-size: 18px;
+  font-size: 20px;
 }
 .hero img.side-photo {
   width: 100%;

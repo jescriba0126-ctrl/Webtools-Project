@@ -36,7 +36,7 @@
     <div class="mainpage-context">
       <h2>BOOK NOW<span><br>To Experience</span><br> a Memorable Day</h2>
       <p>Every journey has its ups and downs <br>and Cubiertos is no exception.</p>
-      <a href="menu.html" class="book-btn">Make an appointment</a>
+      <a href="#container" class="book-btn">Make an appointment</a>
     </div>
   </section> 
 </section> 
@@ -58,13 +58,68 @@
       <img src="flower.png" alt="Cubiertos Story">
     </div>
     <div class="story-text">
+      <section id="story">
       <h2>Our Story</h2>
       <p>Cubiertos began with a small, late-night meal cooked by a young dreamer for her siblings. That moment sparked a passion that turned into a dream. Starting with two staff and three tables, we worked through storms, shortages, and sleepless nights — always holding onto our purpose: to serve food with soul.</p>
       <p>Today, Cubiertos has grown into a cozy local hub where people come not just to eat, but to feel at home. From humble beginnings to heartfelt meals — this is our story, and it’s still being written with every dish we serve.</p>
     </div>
   </div>
 </section>
-
+<section class="contact">
+  <section id="contact">
+      <section id="container">
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h3></h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="number" placeholder="Phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateTimePicker"></label>
+                        <input type="datetime-local" name="datetime" placeholder="Select your prefered date">
+                    </div>
+                    <div class="form-group">
+                       <label for="fruits">Choose your Service</label>
+  <select id="fruits" name="selected_fruit">
+    <option value="Dine-In">Dine In</option>
+    <option value="Catering">Catering</option>
+    <option value="Wedding">Wedding</option>
+    <option value="Birthdays">Birthdays</option>
+  </select>
+                    </div>
+                    <div class="select">
+                       <label for="fruits">Number of Guests</label>
+  <select id="fruits" name="selected_fruit">
+    <option value="Dine-In">2</option>
+    <option value="Catering">5</option>
+    <option value="Wedding">10 and above</option>
+  </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Special Notes"></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                    
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3> Call us for more Information</h3>
+                <p><i class="fas fa-phone"></i>0981 027 0704</p>
+                <p><i class="fas fa-map-marker-alt"></i>Along Imelda Blvd.Rawis, Virac, Catanduanes</p>  
+                <img src="logo.jpg" alt="Cubiertos Food Hub Logo">
+            </div>
+        </div>
+    </div>
+   </section>
 
 <footer>
     <div class="footer-info">
@@ -77,12 +132,13 @@
       </nav>
       <p>Food & Drink · Virac, Philippines, 4800 | Contact Info: 0981 027 0704</p>
       <p>Copyright © 2025 Cubiertos.food.hub</p>
-    </div>
+  
     <div class="footer-socials">
       <a href="https://www.facebook.com/profile.php?id=61555258696901" target="_blank"><img src="Facebook.png" alt="Facebook" /></a>
       <a href="https://www.instagram.com/cubiertos2024/" target="_blank"><img src="Instagram.png" alt="Instagram" /></a>
       <a href="https://youtube.com" target="_blank"><img src="Mail.png" alt="YouTube" /></a>
     </div>
+     </div>
   </footer>
 
   <script>
@@ -94,4 +150,5 @@
       header.classList.remove('scrolled');
     }
   });
+
 </script>
