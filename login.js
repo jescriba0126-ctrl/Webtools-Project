@@ -20,8 +20,8 @@ form.addEventListener('submit', function(event) {
     }
   } 
   else if (loginType === "customer") {
-    if (username === "guest" && password === "guest123") {
-      window.open("index.html", "_self"); // redirect to customer home page
+    if (username === "costumer1" && password === "123") {
+      window.open("book.html", "_self"); // redirect to customer home page
     } else {
       alert("Invalid customer credentials!");
     }
