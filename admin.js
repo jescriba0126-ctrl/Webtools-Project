@@ -5,11 +5,11 @@ const historyTab = document.getElementById("historyTab");
 const liveOrders = document.getElementById("liveOrders");
 const orderHistory = document.getElementById("orderHistory");
 
-// ===== LOAD DATA =====
+
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
 let history = JSON.parse(localStorage.getItem("orderHistory")) || [];
 
-// ===== RENDER ORDERS =====
+
 function renderOrders() {
   ordersTable.innerHTML = "";
   if (orders.length === 0) {
@@ -39,7 +39,7 @@ function renderOrders() {
   });
 }
 
-// ===== RENDER HISTORY =====
+
 function renderHistory() {
   historyTable.innerHTML = "";
   if (history.length === 0) {
@@ -65,7 +65,7 @@ function renderHistory() {
   });
 }
 
-// ===== UPDATE STATUS =====
+
 function updateStatus(index, newStatus) {
   orders[index].status = newStatus;
 
@@ -81,7 +81,7 @@ function updateStatus(index, newStatus) {
   renderHistory();
 }
 
-// ===== DELETE ORDER (LIVE) =====
+
 function deleteOrder(index) {
   if (confirm("Delete this live order?")) {
     orders.splice(index, 1);
@@ -90,7 +90,7 @@ function deleteOrder(index) {
   }
 }
 
-// ===== DELETE HISTORY (COMPLETED) =====
+
 function deleteHistory(index) {
   if (confirm("Delete this completed order?")) {
     history.splice(index, 1);
@@ -99,7 +99,7 @@ function deleteHistory(index) {
   }
 }
 
-// ===== TAB SWITCH =====
+
 liveTab.onclick = () => {
   liveTab.classList.add("active");
   historyTab.classList.remove("active");
@@ -114,13 +114,12 @@ historyTab.onclick = () => {
   orderHistory.style.display = "block";
 };
 
-// ===== LOGOUT =====
+
 function logout() {
   localStorage.removeItem("loggedInUser");
   alert("You have been logged out.");
   window.location.href = "login.html";
 }
 
-// ===== INITIAL RENDER =====
 renderOrders();
 renderHistory();
