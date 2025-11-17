@@ -86,6 +86,69 @@ nav a:hover::after {
   width: 100%;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 8px 0;
+  text-decoration: none;
+  font-size: 13px;
+  color: #283618;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-style: inherit;
+}
+
+.btn:hover {
+  background-color: #d4edda;
+  transform: scale(1.05);
+}
+
+/* para sa buttons ng socials */
+.socials {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.socials a {
+  display: inline-block;
+}
+
+.socials img {
+  width: 65px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.socials img:hover {
+  transform: scale(1.1);
+  background-color: #ffffff;
+}
+  
+
+
+
+
 /* ========== SECTION 1: Our Store ========== */
 .about-section {
   position: relative;
@@ -261,7 +324,6 @@ nav a:hover::after {
   }
 }
 
-/* ========== FOOTER ========== */
 footer {
   width: 100vw; 
   background-color: #ffffff;

@@ -102,6 +102,7 @@ nav a::after {
 nav a:hover::after {
   width: 100%;
 }
+
 /* Hero */
 .hero{
   padding-top:100px; 
