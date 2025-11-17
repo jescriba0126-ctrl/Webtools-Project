@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Booking (Preview demo)</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 24px; background:#fafafa; }
+    form { max-width:700px; margin:auto; background:white; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    label { display:block; margin:12px 0 6px; font-weight:600; }
+    input, select, textarea { width:100%; padding:10px; border-radius:6px; border:1px solid #ddd; }
+    .row { display:flex; gap:12px; }
+    .row > * { flex:1; }
+    .actions { margin-top:16px; text-align:right; }
+    button { padding:10px 14px; border-radius:8px; border:none; cursor:pointer; }
+    button.primary { background:#2f7a2f; color:white; }
+    button.ghost { background:#eee; }
+
+    /* Modal styles (same as yours) */
+    .preview-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 9999; }
+    .preview-modal.show { display:flex; }
+    .preview-modal-content { background: white; border-radius: 8px; padding: 20px; width: 90%; max-width: 520px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+    .preview-modal-content h3 { margin-top: 0; }
+    #previewBody { margin: 12px 0 18px 0; line-height: 1.5; white-space:pre-wrap; }
+    .preview-actions { text-align: right; }
+    .preview-actions .btn { margin-left: 8px; padding: 8px 12px; border-radius: 8px; border: none; cursor: pointer; }
+    .preview-actions .btn.confirm { background:#2f7a2f; color:white; }
+    .preview-actions .btn.edit { background:#ddd; color:#222; }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align:center">Booking Form — Preview Demo</h1>
+
+  <form id="bookingForm">
+    <label for="occasion">Occasion</label>
+    <select id="occasion">
+      <option value="">-- Select Occasion --</option>
+      <option>Birthday</option>
+      <option>Anniversary</option>
+      <option>Corporate</option>
+    </select>
+
+    <label for="guests">Number of Guests</label>
+    <input id="guests" type="number" placeholder="Enter number of guests" />
+
+    <label for="preferredDateTime">Preferred Date & Time</label>
+    <input id="preferredDateTime" type="datetime-local" />
+
+    <label for="packageChoice">Package Choice</label>
+    <select id="packageChoice">
+      <option value="">-- Choose a Package --</option>
+      <option>Basic Package</option>
+      <option>Family Package</option>
+    </select>
+
+    <label for="specialNotes">Special Notes</label>
+    <textarea id="specialNotes" rows="4" placeholder="Any special requests or details?"></textarea>
+
+    <div class="row" style="margin-top:12px;">
+      <div>
+        <label for="customerName">Name</label>
+        <input id="customerName" type="text" placeholder="Your name" />
+      </div>
+      <div>
+        <label for="customerContact">Contact</label>
+        <input id="customerContact" type="text" placeholder="Phone or email" />
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="ghost" onclick="document.getElementById('bookingForm').reset()">Clear Form</button>
+      <button type="submit" class="primary">Submit Booking</button>
+    </div>
+  </form>
+
+  <!-- Confirmation Preview Modal -->
+  <div id="previewModal" class="preview-modal">
+    <div class="preview-modal-content">
+      <h3>Confirm your booking</h3>
+      <div id="previewBody"></div>
+      <div class="preview-actions">
+        <button id="confirmBookingBtn" class="btn confirm">Confirm</button>
+        <button id="editBookingBtn" class="btn edit">Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Load existing orders (same as your admin page) so we can add to them
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    let history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+    // Form elements (IDs must match)
+    const bookingForm = document.getElementById("bookingForm");
+    const occasionInput = document.getElementById("occasion");
+    const guestsInput = document.getElementById("guests");
+    const datetimeInput = document.getElementById("preferredDateTime");
+    const packageInput = document.getElementById("packageChoice");
+    const notesInput = document.getElementById("specialNotes");
+    const nameInput = document.getElementById("customerName");
+    const contactInput = document.getElementById("customerContact");
+
+    // Modal elements
+    const previewModal = document.getElementById("previewModal");
+    const previewBody = document.getElementById("previewBody");
+    const confirmBookingBtn = document.getElementById("confirmBookingBtn");
+    const editBookingBtn = document.getElementById("editBookingBtn");
+
+    function valOrDash(el) {
+      return el && el.value && String(el.value).trim() ? String(el.value).trim() : "—";
+    }
+
+    bookingForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Build a user-friendly preview
+      const lines = [
+        `Occasion: ${valOrDash(occasionInput)}`,
+        `Number of Guests: ${valOrDash(guestsInput)}`,
+        `Preferred Date & Time: ${formatDateTime(valOrDash(datetimeInput))}`,
+        `Package Choice: ${valOrDash(packageInput)}`,
+        `Special Notes: ${valOrDash(notesInput)}`,
+        `Name: ${valOrDash(nameInput)}`,
+        `Contact: ${valOrDash(contactInput)}`
+      ];
+      previewBody.textContent = lines.join("\n");
+      previewModal.classList.add("show");
+    });
+
+    editBookingBtn.addEventListener("click", () => {
+      previewModal.classList.remove("show");
+    });
+
+    confirmBookingBtn.addEventListener("click", () => {
+      const ticket = `T${Date.now().toString().slice(-6)}`;
+      const newOrder = {
+        ticket,
+        name: nameInput.value.trim() || "—",
+        contact: contactInput.value.trim() || "—",
+        service: occasionInput.value.trim() || "—",
+        guests: guestsInput.value.trim() || "",
+        datetime: datetimeInput.value.trim() || "",
+        package: packageInput.value.trim() || "",
+        notes: notesInput.value.trim() || "",
+        amount: 0,
+        status: "Pending",
+        createdAt: new Date().toISOString()
+      };
+      orders.push(newOrder);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      previewModal.classList.remove("show");
+      alert("✅ Thank you for booking!\nYour reservation has been recorded.");
+      bookingForm.reset();
+      // If you want to auto-open admin page afterwards: window.location.href='admin.html';
+    });
+
+    function formatDateTime(v) {
+      if (!v || v === "—") return "—";
+      // try to make datetime-local value readable
+      try {
+        const dt = new Date(v);
+        if (isNaN(dt)) return v;
+        return dt.toLocaleString();
+      } catch { return v; }
+    }
+  </script>
+</body>
+</html>
