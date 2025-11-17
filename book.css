@@ -475,3 +475,40 @@ h4{
    text-align: center;
   font-size: 5vh;
 }
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+.preview-modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.preview-modal-content h3 {
+  margin-top: 0;
+}
+#previewBody {
+  margin: 12px 0 18px 0;
+  line-height: 1.5;
+}
+.preview-actions {
+  text-align: right;
+}
+.preview-actions .btn {
+  margin-left: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.preview-actions .btn.confirm { background:#2f7a2f; color:white; }
+.preview-actions .btn.edit { background:#ddd; color:#222; }
+

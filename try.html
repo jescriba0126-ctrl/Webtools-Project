@@ -1,207 +1,169 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cubiertos Food Hub - Book</title>
-  <link rel="stylesheet" href="try.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Booking (Preview demo)</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 24px; background:#fafafa; }
+    form { max-width:700px; margin:auto; background:white; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    label { display:block; margin:12px 0 6px; font-weight:600; }
+    input, select, textarea { width:100%; padding:10px; border-radius:6px; border:1px solid #ddd; }
+    .row { display:flex; gap:12px; }
+    .row > * { flex:1; }
+    .actions { margin-top:16px; text-align:right; }
+    button { padding:10px 14px; border-radius:8px; border:none; cursor:pointer; }
+    button.primary { background:#2f7a2f; color:white; }
+    button.ghost { background:#eee; }
+
+    /* Modal styles (same as yours) */
+    .preview-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 9999; }
+    .preview-modal.show { display:flex; }
+    .preview-modal-content { background: white; border-radius: 8px; padding: 20px; width: 90%; max-width: 520px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+    .preview-modal-content h3 { margin-top: 0; }
+    #previewBody { margin: 12px 0 18px 0; line-height: 1.5; white-space:pre-wrap; }
+    .preview-actions { text-align: right; }
+    .preview-actions .btn { margin-left: 8px; padding: 8px 12px; border-radius: 8px; border: none; cursor: pointer; }
+    .preview-actions .btn.confirm { background:#2f7a2f; color:white; }
+    .preview-actions .btn.edit { background:#ddd; color:#222; }
+  </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="logo.jpg" alt="Cubiertos Food Hub Logo">
-    </div>
-    <nav>
-      <a href="main.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="stores.html">Our Stores</a>
-      <a href="contacts.html">Contacts</a>
-      <a href="login.html" class="login"><i>👤</i> Log-in</a>
-    </nav>
-  </header>
+  <h1 style="text-align:center">Booking Form — Preview Demo</h1>
 
-  <div class="socials">
-    <a href="#"><img src="Facebook.png" alt="Facebook"></a>
-    <a href="#"><img src="Instagram.png" alt="Instagram"></a>
-    <a href="#"><img src="Mail.png" alt="YouTube"></a>
-  </div>
+  <form id="bookingForm">
+    <label for="occasion">Occasion</label>
+    <select id="occasion">
+      <option value="">-- Select Occasion --</option>
+      <option>Birthday</option>
+      <option>Anniversary</option>
+      <option>Corporate</option>
+    </select>
 
-  <section class="mainpage">
-    <div class="mainpage-context">
-      <h2>BOOK NOW<span><br>To Experience</span><br> a Memorable Day</h2>
-      <p>Every journey has its ups and downs, and Cubiertos is no exception.</p>
-      <a href="#booking" class="book-btn">Make an appointment</a>
-    </div>
-  </section> 
+    <label for="guests">Number of Guests</label>
+    <input id="guests" type="number" placeholder="Enter number of guests" />
 
-  <section class="story-section">
-  <div class="mission-part">
-    <div class="mission-text">
-      <h2>Our Purpose</h2>
-      <p>At Cubiertos, our mission is simple — to bring warmth, comfort, and connection through food made from the heart. Every meal we serve celebrates home and togetherness, proving that good food isn’t just about taste — it’s about belonging.</p>
-    </div>
-    <div class="mission-img">
-      <img src="event.jpg" alt="Cubiertos Mission">
-    </div>
-  </div>
+    <label for="preferredDateTime">Preferred Date & Time</label>
+    <input id="preferredDateTime" type="datetime-local" />
 
- <section id="booking" class="booking-section">
-  <div class="booking-container">
-    <h3>🍴 Book an Appointment</h3>
-    <p class="intro-text">Reserve your table for birthdays, weddings, or special events at <b>Cubiertos Food Hub</b>.</p>
+    <label for="packageChoice">Package Choice</label>
+    <select id="packageChoice">
+      <option value="">-- Choose a Package --</option>
+      <option>Basic Package</option>
+      <option>Family Package</option>
+    </select>
 
-    <form id="bookingForm">
-      <p>
-        <i>Full Name</i><br>
-        <input type="text" name="name" placeholder="Enter your full name" required>
-      </p>
+    <label for="specialNotes">Special Notes</label>
+    <textarea id="specialNotes" rows="4" placeholder="Any special requests or details?"></textarea>
 
-      <p>
-        <i>Email Address</i><br>
-        <input type="email" name="email" placeholder="Enter your email" required>
-      </p>
-
-      <p>
-        <i>Phone Number</i><br>
-        <input type="tel" name="phone" placeholder="e.g. 0981 027 0704" required>
-      </p>
-
-      <p>
-        <i>Type of Occasion</i><br>
-        <select name="occasion" required>
-          <option value="">-- Select Occasion --</option>
-          <option value="dine-in">Dine In</option>
-          <option value="birthday">Birthday</option>
-          <option value="wedding">Wedding</option>
-          <option value="corporate">Corporate Event</option>
-          <option value="other">Other</option>
-        </select>
-      </p>
-
-      <p>
-        <i>Number of Guests</i><br>
-        <input type="number" name="guests" placeholder="Enter number of guests" min="1" max="100" required>
-      </p>
-
-      <p>
-        <i>Preferred Date & Time</i><br>
-        <input type="datetime-local" name="datetime" required>
-      </p>
-
-      <p>
-        <i>Package Choice</i><br>
-        <select name="package">
-          <option value="">-- Choose a Package --</option>
-          <option value="basic">Basic Package (₱2,000 - Small Group)</option>
-          <option value="standard">Standard Package (₱5,000 - 10 Guests)</option>
-          <option value="premium">Premium Package (₱10,000+ - Events)</option>
-        </select>
-      </p>
-
-      <p>
-        <i>Special Notes</i><br>
-        <textarea name="message" rows="4" placeholder="Any special requests or details?"></textarea>
-      </p>
-
-      <div class="form-actions">
-        <button type="submit" class="btn-submit">Submit Booking</button>
-        <button type="reset" class="btn-reset">Clear Form</button>
+    <div class="row" style="margin-top:12px;">
+      <div>
+        <label for="customerName">Name</label>
+        <input id="customerName" type="text" placeholder="Your name" />
       </div>
-    </form>
+      <div>
+        <label for="customerContact">Contact</label>
+        <input id="customerContact" type="text" placeholder="Phone or email" />
+      </div>
+    </div>
 
-    <div class="booking-info">
-      <h4>📞 Need Help?</h4>
-      <p>Contact us at <b>0981 027 0704</b><br>
-      or visit <em>Imelda Blvd., Rawis, Virac, Catanduanes</em></p>
+    <div class="actions">
+      <button type="button" class="ghost" onclick="document.getElementById('bookingForm').reset()">Clear Form</button>
+      <button type="submit" class="primary">Submit Booking</button>
+    </div>
+  </form>
+
+  <!-- Confirmation Preview Modal -->
+  <div id="previewModal" class="preview-modal">
+    <div class="preview-modal-content">
+      <h3>Confirm your booking</h3>
+      <div id="previewBody"></div>
+      <div class="preview-actions">
+        <button id="confirmBookingBtn" class="btn confirm">Confirm</button>
+        <button id="editBookingBtn" class="btn edit">Edit</button>
+      </div>
     </div>
   </div>
-</section>
 
-
-  <footer>
-    <div class="footer-info">
-      <nav>
-        <a href="#mainpage">Home</a>
-        <a href="about.html">About</a>
-        <a href="stores.html">Our Stores</a>
-        <a href="contacts.html">Contacts</a>
-        <a href="login.html"><i>👤</i> Log-in</a>
-      </nav>
-      <p>Food & Drink · Virac, Philippines, 4800 | Contact Info: 0981 027 0704</p>
-      <p>© 2025 Cubiertos.food.hub</p>
-    </div>
-  </footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const bookingForm = document.getElementById("bookingForm");
-
-  bookingForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Collect form values
-    const name = bookingForm.querySelector('input[name="name"]').value;
-    const email = bookingForm.querySelector('input[name="email"]').value;
-    const phone = bookingForm.querySelector('input[name="phone"]').value;
-    const occasion = bookingForm.querySelector('select[name="occasion"]').value;
-    const guests = bookingForm.querySelector('input[name="guests"]').value;
-    const datetime = bookingForm.querySelector('input[name="datetime"]').value;
-    const pkg = bookingForm.querySelector('select[name="package"]').value;
-    const message = bookingForm.querySelector('textarea[name="message"]').value;
-
-    // Choose service & amount for display
-    const service = occasion.charAt(0).toUpperCase() + occasion.slice(1);
-    let amount = 0;
-    if (pkg === "basic") amount = 2000;
-    else if (pkg === "standard") amount = 5000;
-    else if (pkg === "premium") amount = 10000;
-
-    // Create a new order (admin.js expects these properties)
-    const newOrder = {
-      ticket: Date.now(), // unique ID
-      name: name,
-      contact: phone,
-      service: service,
-      amount: amount,
-      status: "Pending",
-      datetime: datetime,
-      notes: message
-    };
-
-    // Save to localStorage
+  <script>
+    // Load existing orders (same as your admin page) so we can add to them
     let orders = JSON.parse(localStorage.getItem("orders")) || [];
-    orders.push(newOrder);
-    localStorage.setItem("orders", JSON.stringify(orders));
+    let history = JSON.parse(localStorage.getItem("orderHistory")) || [];
 
-    alert("✅ Thank you for booking!\nYour reservation has been recorded.");
-    bookingForm.reset();
-  });
-});
+    // Form elements (IDs must match)
+    const bookingForm = document.getElementById("bookingForm");
+    const occasionInput = document.getElementById("occasion");
+    const guestsInput = document.getElementById("guests");
+    const datetimeInput = document.getElementById("preferredDateTime");
+    const packageInput = document.getElementById("packageChoice");
+    const notesInput = document.getElementById("specialNotes");
+    const nameInput = document.getElementById("customerName");
+    const contactInput = document.getElementById("customerContact");
 
- window.addEventListener('scroll', function () {
-      const header = document.querySelector('header');
-      header.classList.toggle('scrolled', window.scrollY > 50);
+    // Modal elements
+    const previewModal = document.getElementById("previewModal");
+    const previewBody = document.getElementById("previewBody");
+    const confirmBookingBtn = document.getElementById("confirmBookingBtn");
+    const editBookingBtn = document.getElementById("editBookingBtn");
+
+    function valOrDash(el) {
+      return el && el.value && String(el.value).trim() ? String(el.value).trim() : "—";
+    }
+
+    bookingForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Build a user-friendly preview
+      const lines = [
+        `Occasion: ${valOrDash(occasionInput)}`,
+        `Number of Guests: ${valOrDash(guestsInput)}`,
+        `Preferred Date & Time: ${formatDateTime(valOrDash(datetimeInput))}`,
+        `Package Choice: ${valOrDash(packageInput)}`,
+        `Special Notes: ${valOrDash(notesInput)}`,
+        `Name: ${valOrDash(nameInput)}`,
+        `Contact: ${valOrDash(contactInput)}`
+      ];
+      previewBody.textContent = lines.join("\n");
+      previewModal.classList.add("show");
     });
 
+    editBookingBtn.addEventListener("click", () => {
+      previewModal.classList.remove("show");
+    });
 
-    let index = 0;
-    const slides = document.getElementsByClassName('mySlides');
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-      }
-      index++;
-      if (index > slides.length) index = 1;
-      slides[index - 1].style.display = 'block';
-      setTimeout(showSlides, 2000);
+    confirmBookingBtn.addEventListener("click", () => {
+      const ticket = `T${Date.now().toString().slice(-6)}`;
+      const newOrder = {
+        ticket,
+        name: nameInput.value.trim() || "—",
+        contact: contactInput.value.trim() || "—",
+        service: occasionInput.value.trim() || "—",
+        guests: guestsInput.value.trim() || "",
+        datetime: datetimeInput.value.trim() || "",
+        package: packageInput.value.trim() || "",
+        notes: notesInput.value.trim() || "",
+        amount: 0,
+        status: "Pending",
+        createdAt: new Date().toISOString()
+      };
+      orders.push(newOrder);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      previewModal.classList.remove("show");
+      alert("✅ Thank you for booking!\nYour reservation has been recorded.");
+      bookingForm.reset();
+      // If you want to auto-open admin page afterwards: window.location.href='admin.html';
+    });
+
+    function formatDateTime(v) {
+      if (!v || v === "—") return "—";
+      // try to make datetime-local value readable
+      try {
+        const dt = new Date(v);
+        if (isNaN(dt)) return v;
+        return dt.toLocaleString();
+      } catch { return v; }
     }
-    showSlides();
-
-</script>
-
-
-
+  </script>
 </body>
 </html>
