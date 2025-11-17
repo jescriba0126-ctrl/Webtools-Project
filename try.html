@@ -1,195 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact Us — Cubiertos</title>
-
-  
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
-
-  
-  <link rel="stylesheet" href="try.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubiertos Food Hub - Book</title>
+  <link rel="stylesheet" href="try.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="site-wrap">
-      <div class="logo">
-        <a href="main.html" aria-label="Cubiertos home">
-          <img src="Images/logo.png" alt="Cubiertos logo" />
-        </a>
-      </div>
 
-      <nav class="main-nav" aria-label="Primary navigation">
-        <a href="main.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="stores.html">Our Stores</a>
-        <a href="contacts.html" class="active">Contact</a>
-        <a href="login.html" class="login"><i class="fa-regular fa-user"></i> Log-in</a>
-      </nav>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Cubiertos Food Hub Logo">
     </div>
+    <nav>
+      <a href="main.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="stores.html">Our Stores</a>
+      <a href="contacts.html">Contacts</a>
+      <a href="login.html" class="login"><i>👤</i> Log-in</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="site-wrap hero-inner">
-      <h1>Contact Us</h1>
-      <p class="hero-sub">Questions, reservations or feedback — we’re here to help. Visit or call our Virac branch.</p>
+  <div class="socials">
+    <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+    <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+    <a href="#"><img src="Mail.png" alt="YouTube"></a>
+  </div>
+
+  <section class="mainpage">
+    <div class="mainpage-context">
+      <h2>BOOK NOW<span><br>To Experience</span><br> a Memorable Day</h2>
+      <p>Every journey has its ups and downs, and Cubiertos is no exception.</p>
+      <a href="#booking" class="book-btn">Make an appointment</a>
     </div>
-  </section>
+  </section> 
 
-  <!-- Main content -->
-  <main class="site-wrap contact-layout" id="main">
-    <!-- Left column: contact cards -->
-    <aside class="contact-cards" aria-labelledby="contact-info-heading">
-      <div class="card contact-card" id="contact-info">
-        <h2 id="contact-info-heading">Contact Information</h2>
+  <section class="story-section">
+  <div class="mission-part">
+    <div class="mission-text">
+      <h2>Our Purpose</h2>
+      <p>At Cubiertos, our mission is simple — to bring warmth, comfort, and connection through food made from the heart. Every meal we serve celebrates home and togetherness, proving that good food isn’t just about taste — it’s about belonging.</p>
+    </div>
+    <div class="mission-img">
+      <img src="event.jpg" alt="Cubiertos Mission">
+    </div>
+  </div>
 
-        <p class="muted">Food & Drink · Virac, Philippines 4800</p>
+ <section id="booking" class="booking-section">
+  <div class="booking-container">
+    <h3>🍴 Book an Appointment</h3>
+    <p class="intro-text">Reserve your table for birthdays, weddings, or special events at <b>Cubiertos Food Hub</b>.</p>
 
-        <p class="phone"><i class="fa-solid fa-phone"></i>
-          <a href="tel:+639810270704">0981 027 0704</a>
-        </p>
+    <form id="bookingForm">
+      <p>
+        <i>Full Name</i><br>
+        <input type="text" name="name" placeholder="Enter your full name" required>
+      </p>
 
-        <p class="address"><i class="fa-solid fa-location-dot"></i>
-          Along Imelda Blvd., Rawis, Virac, Catanduanes
-        </p>
+      <p>
+        <i>Email Address</i><br>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </p>
 
-        <div class="card-actions">
-          <a class="btn" href="https://www.google.com/maps/search/Along+Imelda+Blvd,+Rawis,+Virac,+Catanduanes" target="_blank" rel="noopener">Open in Maps</a>
-          <a class="btn ghost" href="tel:+639810270704">Call Now</a>
-        </div>
+      <p>
+        <i>Phone Number</i><br>
+        <input type="tel" name="phone" placeholder="e.g. 0981 027 0704" required>
+      </p>
+
+      <p>
+        <i>Type of Occasion</i><br>
+        <select name="occasion" required>
+          <option value="">-- Select Occasion --</option>
+          <option value="dine-in">Dine In</option>
+          <option value="birthday">Birthday</option>
+          <option value="wedding">Wedding</option>
+          <option value="corporate">Corporate Event</option>
+          <option value="other">Other</option>
+        </select>
+      </p>
+
+      <p>
+        <i>Number of Guests</i><br>
+        <input type="number" name="guests" placeholder="Enter number of guests" min="1" max="100" required>
+      </p>
+
+      <p>
+        <i>Preferred Date & Time</i><br>
+        <input type="datetime-local" name="datetime" required>
+      </p>
+
+      <p>
+        <i>Package Choice</i><br>
+        <select name="package">
+          <option value="">-- Choose a Package --</option>
+          <option value="basic">Basic Package (₱2,000 - Small Group)</option>
+          <option value="standard">Standard Package (₱5,000 - 10 Guests)</option>
+          <option value="premium">Premium Package (₱10,000+ - Events)</option>
+        </select>
+      </p>
+
+      <p>
+        <i>Special Notes</i><br>
+        <textarea name="message" rows="4" placeholder="Any special requests or details?"></textarea>
+      </p>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Submit Booking</button>
+        <button type="reset" class="btn-reset">Clear Form</button>
       </div>
+    </form>
 
-      <div class="card stores-card" aria-labelledby="stores-heading">
-        <h3 id="stores-heading">Our Stores</h3>
-        <ul class="stores-list">
-          <li><strong>Cubiertos Virac</strong><br/><span class="muted">Along Imelda Blvd., Rawis — 0981 027 0704</span></li>
-          <!-- add more stores here if needed -->
-        </ul>
-        <a class="link-small" href="stores.html">View all stores</a>
-      </div>
+    <div class="booking-info">
+      <h4>📞 Need Help?</h4>
+      <p>Contact us at <b>0981 027 0704</b><br>
+      or visit <em>Imelda Blvd., Rawis, Virac, Catanduanes</em></p>
+    </div>
+  </div>
+</section>
 
-      <div class="card socials-card">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61555258696901" target="_blank" rel="noopener" aria-label="Cubiertos on Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/cubiertos2024/" target="_blank" rel="noopener" aria-label="Cubiertos on Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="Cubiertos on YouTube">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-        </div>
-      </div>
-    </aside>
 
-    <!-- Right column: form + map -->
-    <section class="contact-main" aria-labelledby="send-heading">
-      <div class="card form-card">
-        <h2 id="send-heading">Send Us a Message</h2>
-        <p class="muted">We typically reply within 1–2 business days.</p>
-
-        <form id="contactForm" class="contact-form" novalidate>
-          <div class="form-row">
-            <label for="name">Name<span aria-hidden="true">*</span></label>
-            <input id="name" name="name" type="text" required />
-          </div>
-
-          <div class="form-row">
-            <label for="email">Email<span aria-hidden="true">*</span></label>
-            <input id="email" name="email" type="email" required />
-          </div>
-
-          <div class="form-row">
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" />
-          </div>
-
-          <div class="form-row">
-            <label for="message">Message<span aria-hidden="true">*</span></label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn primary">Send Message</button>
-            <button type="reset" class="btn ghost">Clear</button>
-          </div>
-
-          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-
-      <div class="card map-card" aria-hidden="false">
-        <h3>Find Us</h3>
-        <div class="map-wrap" role="region" aria-label="Map showing Cubiertos location in Virac">
-          <!-- Google Maps embed: keep or replace with your own coordinates -->
-          <iframe
-            title="Cubiertos Virac"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.4091803850525!2d124.2307!3d13.5865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a018e3bff7ffb1%3A0x2c0a64c4e9cb87f0!2sImelda%20Blvd%2C%20Virac%2C%20Catanduanes!5e0!3m2!1sen!2sph!4v1731290000000!5m2!1sen!2sph"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            aria-hidden="false"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-wrap footer-inner">
-      <div class="footer-left">
-        <p class="muted">Food & Drink · Virac, Philippines, 4800</p>
-        <p class="muted">Contact Info: <a href="tel:+639810270704">0981 027 0704</a></p>
-      </div>
-
-      <div class="footer-right">
-        <p>© <span id="year"></span> Cubiertos.food.hub</p>
-      </div>
+  <footer>
+    <div class="footer-info">
+      <nav>
+        <a href="#mainpage">Home</a>
+        <a href="about.html">About</a>
+        <a href="stores.html">Our Stores</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="login.html"><i>👤</i> Log-in</a>
+      </nav>
+      <p>Food & Drink · Virac, Philippines, 4800 | Contact Info: 0981 027 0704</p>
+      <p>© 2025 Cubiertos.food.hub</p>
     </div>
   </footer>
 
 <script>
-  // header scroll effect
-  const header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
+document.addEventListener("DOMContentLoaded", function () {
+  const bookingForm = document.getElementById("bookingForm");
+
+  bookingForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Collect form values
+    const name = bookingForm.querySelector('input[name="name"]').value;
+    const email = bookingForm.querySelector('input[name="email"]').value;
+    const phone = bookingForm.querySelector('input[name="phone"]').value;
+    const occasion = bookingForm.querySelector('select[name="occasion"]').value;
+    const guests = bookingForm.querySelector('input[name="guests"]').value;
+    const datetime = bookingForm.querySelector('input[name="datetime"]').value;
+    const pkg = bookingForm.querySelector('select[name="package"]').value;
+    const message = bookingForm.querySelector('textarea[name="message"]').value;
+
+    // Choose service & amount for display
+    const service = occasion.charAt(0).toUpperCase() + occasion.slice(1);
+    let amount = 0;
+    if (pkg === "basic") amount = 2000;
+    else if (pkg === "standard") amount = 5000;
+    else if (pkg === "premium") amount = 10000;
+
+    // Create a new order (admin.js expects these properties)
+    const newOrder = {
+      ticket: Date.now(), // unique ID
+      name: name,
+      contact: phone,
+      service: service,
+      amount: amount,
+      status: "Pending",
+      datetime: datetime,
+      notes: message
+    };
+
+    // Save to localStorage
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    alert("✅ Thank you for booking!\nYour reservation has been recorded.");
+    bookingForm.reset();
   });
+});
 
-  // simple front-end form handling (replace with real endpoint)
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
+ window.addEventListener('scroll', function () {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
 
-    // simple validation
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-
-    if (!name || !email || !message) {
-      status.textContent = 'Please fill in all required fields.';
-      status.className = 'form-status error';
-      return;
+    let index = 0;
+    const slides = document.getElementsByClassName('mySlides');
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      index++;
+      if (index > slides.length) index = 1;
+      slides[index - 1].style.display = 'block';
+      setTimeout(showSlides, 2000);
     }
+    showSlides();
 
-    // pretend send — replace with fetch() to your backend or form endpoint
-    status.textContent = 'Sending…';
-    status.className = 'form-status';
-
-    setTimeout(() => {
-      status.textContent = 'Thanks! We received your message — we will get back to you soon.';
-      status.className = 'form-status success';
-      form.reset();
-    }, 900);
-  });
-
-  // set year
-  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+
+
 </body>
 </html>
